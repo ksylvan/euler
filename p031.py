@@ -23,6 +23,7 @@ class CoinChange:
     def waysToMakeChange(self, amount: int) -> int:
         """
         Returns the number of ways to make change for n, given the list of denominations.
+        This Dynamic Programming solution was written by GPT-3.
 
         >>> CoinChange([1]).waysToMakeChange(1)
         1
@@ -53,5 +54,3 @@ class CoinChange:
 if __name__ == '__main__':
     import doctest
     doctest.testmod(verbose=True)
-    
-# 1p, 2p, 5p, 10p, 20p, 50p, £1 (100p), and £2 (200p).
