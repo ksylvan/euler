@@ -101,6 +101,23 @@ def factors(n: int) -> List[int]:
         res.append(n)
     return res
 
+def gcd(a: int, b: int) -> int:
+    """
+    Returns the greatest common divisor of a and b.
+    
+    >>> gcd(2, 3)
+    1
+    >>> gcd(3, 2)
+    1
+    >>> gcd(0, 0)
+    0
+    >>> gcd(20, 15)
+    5
+    """
+    while b:
+        a, b = b, a % b
+    return a
+
 if __name__ == "__main__":
     import doctest
     doctest.testmod(verbose=True)
