@@ -21,6 +21,10 @@ def digit_canceling_fractions() -> List[Tuple[int,int]]:
     
     The idea is that we have cases where we have a two digit number 10a+b and another 10b+c
     where 0 < a < 10, and the same for b and c. And 10a+b/10b+c == a/c
+    
+    >>> l = digit_canceling_fractions()
+    >>> (49, 98) in l
+    True
     """
     res = []
     for a in range(1, 10):
@@ -33,14 +37,16 @@ def digit_canceling_fractions() -> List[Tuple[int,int]]:
     return res
 
 if __name__ == "__main__":
+    import doctest
+    doctest.testmod(verbose=True)
     numerator, denominator = 1, 1
-    print("The list of two-digit digit canceling fractions are:")
+    print("@ The list of two-digit digit canceling fractions are:")
     for a, b in digit_canceling_fractions():
-        print(f"{a}/{b}")
+        print(f"@ {a}/{b}")
         numerator *= a
         denominator *= b
     g = gcd(numerator, denominator)
     numerator //= g
     denominator //= g
-    print(f"The product of those fractions, normalized is: {numerator}/{denominator}")
-    print(f"The answe for Euler 33 is: {denominator}")
+    print(f"@ The product of those fractions, normalized is: {numerator}/{denominator}")
+    print(f"@ The answer to Euler 33 is: {denominator}")

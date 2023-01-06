@@ -81,6 +81,6 @@ if __name__ == "__main__":
     import doctest
     doctest.testmod(verbose=True)
     pyth_scan_to_perim(1000)
-    print(f"Answer to Euler 39: perimeter_with_most_triples = {perimeter_with_most_triples}")
-    print(f"That perimeter is reached with {most_triples_list_len} triples")
-    print(f"The list of Pythagorean Triples with that parameter: {perimeters[perimeter_with_most_triples]}")
+    print(f"@ Answer to Euler 39: perimeter_with_most_triples = {perimeter_with_most_triples}")
+    print(f"@ That perimeter is reached with {most_triples_list_len} triples")
+    print(f"@ The list of Pythagorean Triples with that parameter: {perimeters[perimeter_with_most_triples]}")

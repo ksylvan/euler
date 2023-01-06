@@ -96,5 +96,5 @@ if __name__ ==  "__main__":
     doctest.testmod(verbose=True)
     r = set()
     n = circular_primes_below(1000000, r)
-    print("Euler 35 answer for how many circular primes below a million:", n)
-    print(f"The set of circular primes is: {sorted(list(r))}")
+    print("@ Euler 35 answer for how many circular primes below a million:", n)
+    print(f"@ The set of circular primes is: {sorted(list(r))}")

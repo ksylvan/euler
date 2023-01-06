@@ -88,5 +88,5 @@ if __name__ == '__main__':
         if n > m:
             m = n
             res = r
-    print("Euler Problem 38 answer:", m)
-    print("The answe is composed of the following numbers:", res)
+    print("@ Euler Problem 38 answer:", m)
+    print("@ The answer is composed of the following numbers:", res)

@@ -13,6 +13,7 @@
 # once in your sum.
 
 from typing import Set
+from primes import all_factors
 
 def pandigital_product() -> Set[int]:
     """
@@ -20,21 +21,26 @@ def pandigital_product() -> Set[int]:
     
     We can use a crude factorization to create factors of C and only check those
     for values of A and B.
+    
+    >>> s = pandigital_product()
+    >>> 7254 in s
+    True
     """
     res = set()
     # Iterate through all possiblevalues of C
     for C in range(100, 10000):
         # Find the factors of C
-        factors = []
-        for i in range(1, C+1):
-            if C % i == 0:
-                factors.append(i)
-        # Check the values of A and B that are factors of C
+        factors = all_factors(C, include_one = False)
+        # Check for pandigital-ness
         for A in factors:
-            for B in factors:
-                if A*B == C and ''.join(sorted(str(A)+str(B)+str(C))) == '123456789':
-                    res.add(C)
+            B = C // A
+            if ''.join(sorted(str(A)+str(B)+str(C))) == '123456789':
+                res.add(C)
     return res
 
 if __name__ == '__main__':
-    print("Euler 32 answer:", sum(list(pandigital_product())))
+    import doctest
+    doctest.testmod(verbose=True)
+    s = pandigital_product()
+    print("@ Euler 32 answer:", sum(s))
+    print(f"@ The set of numbers is: {s}")

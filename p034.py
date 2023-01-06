@@ -35,4 +35,6 @@ def find_digit_factorial_nums() -> List[int]:
 if __name__ == '__main__':
     import doctest
     doctest.testmod(verbose=True)
-    print(f"Euler 34 answer: {sum(find_digit_factorial_nums())}")
+    l = find_digit_factorial_nums()
+    print(f"@ Euler 34 answer: {sum(l)}")
+    print(f"@ The numbers are: {l}")

@@ -108,5 +108,5 @@ if __name__ == "__main__":
     import doctest
     doctest.testmod(verbose=True)
     l = doubleBasePalindromesLessThan(1000000)
-    print(f"Euler problem 36 answer for sum of double base palindromes less than 1000000: {sum(l)}")
-    print(f"The numbers are: {l}")
+    print(f"@ Euler problem 36 answer for sum of double base palindromes less than 1000000: {sum(l)}")
+    print(f"@ The numbers are: {l}")

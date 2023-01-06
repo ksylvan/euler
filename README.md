@@ -10,3 +10,26 @@ See <https://projecteuler.net>
 ## This Repository
 
 This repository is for the solutions of the Project Euler problems.
+
+Conventions for the code: All python code uses doctest and is structured into small understandable methods.
+
+The answers to all the Euler problems can be seen by:
+
+```bash
+make all
+```
+
+This default target assumes convention that the output to summarize the answer starts with the
+string "@ " at the beginning of the line.
+
+```bash
+make tests
+```
+
+This target simply runs all the tests in every file, showing only the pass/fail lines from doctest.
+
+```bash
+make verbose
+```
+
+The `verbose` target runs all the python modules, with no filtering.

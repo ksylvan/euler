@@ -53,4 +53,4 @@ if __name__ ==  "__main__":
         if isTruncatablePrime(p):
             num -= 1
             s += p
-    print(f"Euler Problem 36: The sum of the 11 truncatable primes is {s}")
+    print(f"@ Euler Problem 36: The sum of the 11 truncatable primes is {s}")

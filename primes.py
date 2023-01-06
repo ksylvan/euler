@@ -1,8 +1,9 @@
 # Prime related utility methods.
 #
 
-from itertools import count
+from itertools import count, combinations
 from typing import List
+from math import prod
 
 __p = [2, 3, 5]
 
@@ -101,6 +102,24 @@ def factors(n: int) -> List[int]:
         res.append(n)
     return res
 
+def all_factors(n: int, include_one = False) -> List[int]:
+    """
+    Returns a list of all composite and prine factors of n.
+    
+    >>> all_factors(2)
+    [2]
+    >>> all_factors(24, include_one = True)
+    [1, 2, 3, 4, 6, 8, 12, 24]
+    """
+    f = factors(n)
+    res = set()
+    if include_one:
+        res.add(1)
+    for i in range(1, len(f) + 1):
+        for subset in combinations(f, i):
+            res.add(prod(subset))
+    return sorted(list(res))
+
 def gcd(a: int, b: int) -> int:
     """
     Returns the greatest common divisor of a and b.
@@ -121,3 +140,4 @@ def gcd(a: int, b: int) -> int:
 if __name__ == "__main__":
     import doctest
     doctest.testmod(verbose=True)
+    print("@ This utility module does not answer any Euler project questions.")
