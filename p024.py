@@ -64,3 +64,5 @@ def nth(n: int, s: str) -> str:
 if __name__ == "__main__":
     import doctest
     doctest.testmod(verbose=True)
+    s = nth(1000000, '0123456789')
+    print("@ The answer to Euler 24 (millionth lexicographic permutation of 0-9 is:", s)

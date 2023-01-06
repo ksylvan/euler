@@ -8,14 +8,15 @@
 # Find the sum of the digits in the number 100!
 #
 
-from functools import reduce
+from functools import reduce, cache
 from operator import add
+from math import prod
 
+@cache
 def factorial(n: int) -> int:
     if n == 0:
       return 1
-    else:
-      return n * factorial(n - 1)
+    return prod(range(1, n+1))
 
 def factorial_digit_sum(n: int) -> int:
     """
@@ -38,3 +39,4 @@ def factorial_digit_sum(n: int) -> int:
 if __name__ == '__main__':
     import doctest
     doctest.testmod(verbose=True)
+    print("@ Answer for Euler #20 (sum of digits in 100!):", factorial_digit_sum(100))

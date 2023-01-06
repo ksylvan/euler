@@ -120,6 +120,7 @@ def is_amicable(n: int) -> bool:
     n2 = sum_proper_factors(n1)
     return n2 == n and n1 != n2
 
+@cache
 def all_amicable_under(lim: int) -> int:
     """
     Return the sum of all amicable numbers under lim.
@@ -142,3 +143,4 @@ def all_amicable_under(lim: int) -> int:
 if __name__ == "__main__":
     import doctest
     doctest.testmod(verbose=True)
+    print("@ The answer to Euler #21 (sum of all amicable numbers under 10000):", all_amicable_under(10000))

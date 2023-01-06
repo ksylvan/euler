@@ -16,6 +16,7 @@
 # Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers.
 
 from p021 import sum_proper_factors
+from functools import cache
 
 def is_abundant(n: int) -> bool:
     """
@@ -25,6 +26,7 @@ def is_abundant(n: int) -> bool:
     """
     return sum_proper_factors(n) > n
 
+@cache
 def solve() -> int:
     """
     Returns the sum of all the positive integers which cannot be written as the sum of two abundant numbers.
@@ -55,3 +57,4 @@ def solve() -> int:
 if __name__ == "__main__":
     import doctest
     doctest.testmod(verbose=True)
+    print(f"@ The answer to Euler #23 (abundant numbers) is {solve()}")

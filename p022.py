@@ -11,6 +11,7 @@
 # What is the total of all the name scores in the file?
 
 from typing import List
+from functools import cache
 
 def get_names_from_file(fname: str) -> List[str]:
     with open(fname, 'r') as f:
@@ -32,6 +33,7 @@ def name_value(s: str) -> int:
         res += ord(c) - ord('A') + 1
     return res
 
+@cache
 def solve() -> int:
     """
     Solve the given problem (sum of all name values multiplied by their position)
@@ -49,3 +51,4 @@ def solve() -> int:
 if __name__ == '__main__':
     import doctest
     doctest.testmod(verbose=True)
+    print(f'@ The answer to Euler #22 is: {solve()}')
