@@ -43,4 +43,6 @@ def findArmstrongLikeNumbers(n: int) -> List[int]:
 if __name__ == "__main__":
     import doctest
     doctest.testmod(verbose=True)
-    print("Euler Project #30 answer:", sum(findArmstrongLikeNumbers(5)))
+    l = findArmstrongLikeNumbers(5)
+    print("@ Euler Project #30 answer:", sum(l))
+    print(f"@ The numbers that make up ths sum: {l}")

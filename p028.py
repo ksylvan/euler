@@ -38,3 +38,4 @@ def spiralDiagSum(n: int) -> int:
 if __name__ == "__main__":
     import doctest
     doctest.testmod(verbose=True)
+    print(f"@ The answer to Euler 28 is: {spiralDiagSum(1001)}")

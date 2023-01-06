@@ -54,3 +54,5 @@ class CoinChange:
 if __name__ == '__main__':
     import doctest
     doctest.testmod(verbose=True)
+    c = CoinChange([1,2,5,10,20,50,100, 200])
+    print(f"@ Euler problem 31 answer is: {c.waysToMakeChange(200)}")

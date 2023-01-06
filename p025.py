@@ -30,6 +30,7 @@ def fibonacci(n: int) -> int:
         return n
     return fibonacci(n - 2) + fibonacci(n - 1)
 
+@cache
 def fib_term_with_digits(n: int):
     """
     >>> fib_term_with_digits(0)
@@ -54,3 +55,4 @@ def fib_term_with_digits(n: int):
 if __name__ == "__main__":
     import doctest
     doctest.testmod(verbose=True)
+    print("@ Answer for Euler #25 (index of 1st Fibonacci number with 1000 digits):", fib_term_with_digits(1000))

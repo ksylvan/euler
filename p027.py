@@ -63,4 +63,4 @@ if __name__ == "__main__":
     import doctest
     doctest.testmod(verbose=True)
     a, b = find_a_b(1000)
-    print (f"Project Euler Problem 27 answer: {a*b}")
+    print (f"@ Project Euler Problem 27 answer: {a*b}")
