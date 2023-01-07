@@ -84,3 +84,4 @@ def largest_product_adjacent(n: int) -> int:
 if __name__ == "__main__":
     import doctest
     doctest.testmod(verbose=True)
+    print('@ Answer for Euler #8:', largest_product_adjacent(13))

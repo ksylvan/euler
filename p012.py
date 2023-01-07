@@ -96,4 +96,4 @@ def first_triangle_number_with_over_n_divisors(n: int) -> int:
 if __name__ == "__main__":
     import doctest
     doctest.testmod(verbose=True)
-
+    print('@ Answer to Euler #12:', first_triangle_number_with_over_n_divisors(500))

@@ -39,8 +39,5 @@ def find_triplets_summing_to(n: int) -> List[List[int]]:
 if __name__ == "__main__":
     import doctest
     doctest.testmod(verbose=True)
-    
-    print("Euler Problem 9 answer:")
     res = find_triplets_summing_to(1000)[0]
-    print(res[0]*res[1]*res[2])
-    
+    print("@ Euler Problem 9 answer:", res[0]*res[1]*res[2])    

@@ -101,3 +101,4 @@ def greatest_product(grid: List[List[int]], n: int) -> int:
 if __name__ == "__main__":
     import doctest
     doctest.testmod(verbose=True)
+    print('@ Answer for Euler #11:', greatest_product(grid, 20))

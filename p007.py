@@ -57,3 +57,4 @@ def nthPrime(n: int) -> int:
 if __name__ == '__main__':
     import doctest
     doctest.testmod(verbose=True)
+    print('@ Answer for Euler #7:', nthPrime(10001))
