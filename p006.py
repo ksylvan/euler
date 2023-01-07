@@ -52,3 +52,4 @@ def sum_square_diff(n: int) -> int:
 if __name__ == "__main__":
     import doctest
     doctest.testmod(verbose=True)
+    print('@ Answer to Euler #6:', sum_square_diff(100))

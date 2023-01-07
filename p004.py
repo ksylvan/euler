@@ -89,3 +89,4 @@ class Solution:
 if __name__ == "__main__":
     import doctest
     doctest.testmod(verbose=True)
+    print('@ Answer to Euler #4:', Solution().largestPalindrome(3))

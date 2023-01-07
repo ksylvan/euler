@@ -29,7 +29,7 @@ def even_fibonacci_sums(n: int) -> int:
             s += a
     return s
 
-
 if __name__ == "__main__":
     import doctest
     doctest.testmod(verbose=True)
+    print('@ Answer to Euler #2:', even_fibonacci_sums(4000000))

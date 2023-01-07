@@ -44,3 +44,4 @@ def largest_prime_factor(n: int) -> int:
 if __name__ == "__main__":
     import doctest
     doctest.testmod(verbose=True)
+    print('@ Answer to Euler #3:', largest_prime_factor(600851475143))

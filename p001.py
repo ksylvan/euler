@@ -52,3 +52,4 @@ def sum_of_multiples_of_3_or_5_below_n(n: int) -> int:
 if __name__ == '__main__':
     import doctest
     doctest.testmod(verbose=True)
+    print('@ Answer to Euler #1:', sum_of_multiples_of_3_or_5_below_n(1000))    

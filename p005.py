@@ -47,4 +47,5 @@ class Solution:
 if __name__ == "__main__":
     import doctest
     doctest.testmod(verbose=True)
+    print('@ Answer to Euler #5:', Solution().smallestMultiple(20))
     
