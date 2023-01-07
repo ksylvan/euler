@@ -40,6 +40,7 @@ def collatz_length(n: int) -> int:
             res = collatz_length(3 * n + 1) + 1
     return res
 
+@cache
 def collatz_longest_sequence_under(n: int) -> int:
     """
     >>> collatz_longest_sequence_under(1)
@@ -60,3 +61,4 @@ def collatz_longest_sequence_under(n: int) -> int:
 if __name__ ==  "__main__":
     import doctest
     doctest.testmod(verbose=True)
+    print(f"@ Answer to Euler #14: {collatz_longest_sequence_under(1000000)}")

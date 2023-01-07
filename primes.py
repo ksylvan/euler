@@ -70,7 +70,7 @@ def is_prime(n: int) -> bool:
 
 def factors(n: int) -> List[int]:
     """
-    Returns a list of all prime numbers of n.
+    Returns a list of all prime factors of n.
     
     >>> factors(2)
     [2]

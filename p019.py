@@ -26,3 +26,4 @@ def answer() -> int:
 if __name__ == "__main__":
     import doctest
     doctest.testmod(verbose=True)
+    print("@ Answer to Euler #19 (Sundays on 1st of the month in 20th century):", answer())

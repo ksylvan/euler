@@ -21,3 +21,4 @@ def power_digit_sum(n: int) -> int:
 if __name__ == "__main__":
     import doctest
     doctest.testmod(verbose=True)
+    print('@ Answer for Euler #16:', power_digit_sum(1000))

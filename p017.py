@@ -50,4 +50,5 @@ def letters_up_to_1000() -> int:
 if __name__ == '__main__':
     import doctest
     doctest.testmod(verbose=True)
+    print('@ Answer to Euler #17:', letters_up_to_1000())
 

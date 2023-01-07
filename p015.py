@@ -30,3 +30,4 @@ def lattice_paths(n: int) -> int:
 if __name__ == '__main__':
     import doctest
     doctest.testmod(verbose=True)
+    print('@ Answer for Euler #15:', lattice_paths(20))

@@ -126,3 +126,4 @@ def first_n_digits(n: int) -> str:
 if __name__ == '__main__':
     import doctest
     doctest.testmod(verbose=True)
+    print('@ Answer for Euler #13:', first_n_digits(15))

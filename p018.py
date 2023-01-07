@@ -75,3 +75,4 @@ def max_path(triangle: List[List[int]]) -> int:
 if __name__ == "__main__":
     import doctest
     doctest.testmod(verbose=True)
+    print("@ Answer to Euler #18: ", max_path(t))
