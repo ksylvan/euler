@@ -29,6 +29,8 @@ class PandigitalGenerator:
 
     >>> p = PandigitalGenerator(3)
     >>> for i in p: print(i)
+    12
+    21
     102
     120
     201
@@ -36,7 +38,7 @@ class PandigitalGenerator:
     
     We can use a filter function to vet the generated numbers.
     
-    >>> p = PandigitalGenerator(3, lambda p: p[-1]%2 == 1)
+    >>> p = PandigitalGenerator(3, lambda p: p[-1]%2 == 1 and p[0] != 0)
     >>> for i in p: print(i)
     201
     """
@@ -52,7 +54,6 @@ class PandigitalGenerator:
 
         If filter was specified at construction, only return numbers that pass the filter.
         """
-        first_digit = 0
         filter = self.filter
         while True:
             x = next(self._p)
