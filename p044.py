@@ -59,17 +59,30 @@ def pentagonal_index(x: int) -> int:
     n = (1+ sqrt(1+24*x))/6
     return int(n) if n == int(n) else -1
 
-def search():
+def search(limit: int = 50000):
     """
-    Generator that searches for a pentagonal number pair P(m) and P(n) such that
-    n > m and P(n) - P(m) is a pentagonal number and P(n)+P(m) is also a pentagonal number.
+    Generator that searches for a pentagonal number pair P(j) and P(k) such that
+    k > j and P(k)-P(j) is a pentagonal number and P(k)+P(j) is also a pentagonal number.
+    
+    Suppose p(k) + p(j) = A, and
+            p(k) - p(j) = B
+    
+    Then: p(k) = (A + B) / 2
+          p(j) = (A - B) / 2
+    
+    So we can loop through the pentagonal numbers directly and only check if p(j)
+    and p(k) are pentagonal or not when the possible value for B is smaller
+    than the current number.
     """
-    for n in count(2):
-        p_n = pent(n)
-        for m in range(1, n):
-            p_m = pent(m)
-            if pentagonal_index(p_n - p_m) != -1 and pentagonal_index(p_m + p_n) != -1:
-                yield (p_m, p_n)
+    nums = [pent(i) for i in range(limit)]
+    for i in range(2, limit):
+        S = nums[i] # this represents A+B (the sum)
+        for j in range(1, i - 1):
+            diff = nums[j]
+            pk = (S + diff)/2
+            pj = (S - diff)/2
+            if pentagonal_index(pk) != -1 and pentagonal_index(pj) != -1:
+                yield (int(pj), int(pk))
 
 if __name__ == "__main__":
     import doctest
