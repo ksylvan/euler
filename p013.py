@@ -2,6 +2,8 @@
 # one hundred 50 digit numbers.
 #
 
+from testing import report_timing, run_doctest, timer
+
 numbers = """
 37107287533902102798797998220837590246510135740250
 46376937677490009712648124896970078050417018260538
@@ -105,6 +107,7 @@ numbers = """
 53503534226472524250874054075591789781264330331690
 """
 
+@timer
 def first_n_digits(n: int) -> str:
     """
     Return the first n digits of the sum of the above 100 50 digit numners.
@@ -124,6 +127,6 @@ def first_n_digits(n: int) -> str:
     return str(sum(l2))[:n]
     
 if __name__ == '__main__':
-    import doctest
-    doctest.testmod(verbose=True)
+    run_doctest()
     print('@ Answer for Euler #13:', first_n_digits(15))
+    report_timing()

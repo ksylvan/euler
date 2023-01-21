@@ -10,8 +10,10 @@
 #
 # Code was mostly written by ChatGPT https://chat.openai.com/chat
 
+from testing import report_timing, run_doctest, timer
 from typing import List, Dict
 
+@timer
 def extend_primeas(primes: List[int], v: int) -> None:
     last_prime = primes[-1]
     while last_prime * last_prime < v:
@@ -30,6 +32,7 @@ def extend_primeas(primes: List[int], v: int) -> None:
                 last_prime = next_prime
                 break
 
+@timer
 def factorize(n: int, primes: List[int], prime_factors: Dict[int,int]) -> None:
     # Loop over all primes
     for p in primes:
@@ -46,6 +49,7 @@ def factorize(n: int, primes: List[int], prime_factors: Dict[int,int]) -> None:
     # Return the dictionary of prime factors and their powers
     return prime_factors
 
+@timer
 def first_triangle_number_with_over_n_divisors(n: int) -> int:
     """
     >>> first_triangle_number_with_over_n_divisors(5)
@@ -94,6 +98,6 @@ def first_triangle_number_with_over_n_divisors(n: int) -> int:
     return -1
 
 if __name__ == "__main__":
-    import doctest
-    doctest.testmod(verbose=True)
+    run_doctest()
     print('@ Answer to Euler #12:', first_triangle_number_with_over_n_divisors(500))
+    report_timing()

@@ -4,6 +4,9 @@
 #
 # How many such routes are there through a 20×20 grid?
 
+from testing import report_timing, run_doctest, timer
+
+@timer
 def lattice_paths(n: int) -> int:
     """
     Use math (combinatorics) to derive the total number of lattice paths.
@@ -28,6 +31,6 @@ def lattice_paths(n: int) -> int:
     return res
 
 if __name__ == '__main__':
-    import doctest
-    doctest.testmod(verbose=True)
+    run_doctest()
     print('@ Answer for Euler #15:', lattice_paths(20))
+    report_timing()

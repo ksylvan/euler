@@ -14,8 +14,11 @@
 #
 # Brute force, we can test the o(n^2) possible triplets:
 #
+
+from testing import report_timing, run_doctest, timer
 from typing import List
 
+@timer
 def find_triplets_summing_to(n: int) -> List[List[int]]:
     """
     >>> find_triplets_summing_to(12)
@@ -37,7 +40,7 @@ def find_triplets_summing_to(n: int) -> List[List[int]]:
     return res
 
 if __name__ == "__main__":
-    import doctest
-    doctest.testmod(verbose=True)
+    run_doctest()
     res = find_triplets_summing_to(1000)[0]
-    print("@ Euler Problem 9 answer:", res[0]*res[1]*res[2])    
+    print("@ Euler Problem 9 answer:", res[0]*res[1]*res[2])
+    report_timing()

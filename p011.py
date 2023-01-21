@@ -26,7 +26,9 @@
 # What is the greatest product of four adjacent numbers in the same
 # direction (up, down, left, right, or diagonally) in the 20×20 grid?
 
+from testing import report_timing, run_doctest, timer
 from typing import List
+
 grid = [
     [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
     [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
@@ -56,7 +58,7 @@ grid = [
     [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48],
 ]
 
-
+@timer
 def greatest_product(grid: List[List[int]], n: int) -> int:
     """
     Returns the greatest product of the given grid.
@@ -99,6 +101,6 @@ def greatest_product(grid: List[List[int]], n: int) -> int:
     return greatest_product
 
 if __name__ == "__main__":
-    import doctest
-    doctest.testmod(verbose=True)
+    run_doctest()
     print('@ Answer for Euler #11:', greatest_product(grid, 20))
+    report_timing()

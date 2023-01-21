@@ -53,7 +53,9 @@ digits = list(map(int, input_digits.replace("\n", '')))
 
 from functools import reduce
 from operator import mul
+from testing import report_timing, run_doctest, timer
 
+@timer
 def largest_product_adjacent(n: int) -> int:
     """
     Find the largest product of n adjacent digits in the 1000 digit number.
@@ -82,6 +84,6 @@ def largest_product_adjacent(n: int) -> int:
     return largest_product_so_far
 
 if __name__ == "__main__":
-    import doctest
-    doctest.testmod(verbose=True)
+    run_doctest()
     print('@ Answer for Euler #8:', largest_product_adjacent(13))
+    report_timing()

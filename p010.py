@@ -5,9 +5,11 @@
 # Find the sum of all the primes below two million.
 
 from math import sqrt
+from testing import report_timing, run_doctest, timer
 
 primes = [2, 3, 5, 7, 11, 13, 17, 19]
 
+@timer
 def generate_primes():
     p = len(primes)
     for i in range(p):
@@ -27,6 +29,7 @@ def generate_primes():
             primes.append(candidate)
         candidate += 2
 
+@timer
 def sum_of_primes_below(n: int) -> int:
     """
     Returns the sum of the primes below n.
@@ -50,6 +53,6 @@ def sum_of_primes_below(n: int) -> int:
     return res
 
 if __name__ == '__main__':
-    import doctest
-    doctest.testmod(verbose=True)
+    run_doctest()
     print('@ Answer to Euler #10:', sum_of_primes_below(2 * 1000000))
+    report_timing()

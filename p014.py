@@ -18,7 +18,9 @@
 #
 
 from functools import cache
+from testing import report_timing, run_doctest, timer
 
+@timer
 @cache
 def collatz_length(n: int) -> int:
     """
@@ -40,6 +42,7 @@ def collatz_length(n: int) -> int:
             res = collatz_length(3 * n + 1) + 1
     return res
 
+@timer
 @cache
 def collatz_longest_sequence_under(n: int) -> int:
     """
@@ -59,6 +62,6 @@ def collatz_longest_sequence_under(n: int) -> int:
     return num
 
 if __name__ ==  "__main__":
-    import doctest
-    doctest.testmod(verbose=True)
+    run_doctest()
     print(f"@ Answer to Euler #14: {collatz_longest_sequence_under(1000000)}")
+    report_timing()
