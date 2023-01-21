@@ -3,6 +3,9 @@
 # 
 # Find the sum of all the multiples of 3 or 5 below 1000.
 
+from testing import report_timing, run_doctest, timer
+
+@timer
 def sum_of_multiples_of_3_or_5_below_n(n: int) -> int:
     """
     Returns the sum of all the multiples of 3 or 5 below n.
@@ -50,6 +53,6 @@ def sum_of_multiples_of_3_or_5_below_n(n: int) -> int:
     return s
 
 if __name__ == '__main__':
-    import doctest
-    doctest.testmod(verbose=True)
-    print('@ Answer to Euler #1:', sum_of_multiples_of_3_or_5_below_n(1000))    
+    run_doctest()
+    print('@ Answer to Euler #1:', sum_of_multiples_of_3_or_5_below_n(1000))
+    report_timing()

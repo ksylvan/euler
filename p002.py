@@ -9,6 +9,9 @@
 # By considering the terms in the Fibonacci sequence whose values do not exceed four million,
 # find the sum of the even-valued terms.
 
+from testing import report_timing, run_doctest, timer
+
+@timer
 def even_fibonacci_sums(n: int) -> int:
     """
     Returns the sum of the even-valued terms of the Fibonacci sequence.
@@ -30,6 +33,6 @@ def even_fibonacci_sums(n: int) -> int:
     return s
 
 if __name__ == "__main__":
-    import doctest
-    doctest.testmod(verbose=True)
+    run_doctest()
     print('@ Answer to Euler #2:', even_fibonacci_sums(4000000))
+    report_timing()

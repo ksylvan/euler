@@ -11,6 +11,8 @@ from math import sqrt
 from typing import List
 from heapq import heappop, heapify
 
+from testing import report_timing, run_doctest, timer
+
 class Solution:
     """
     Return the prime factors of n.
@@ -22,6 +24,7 @@ class Solution:
     >>> Solution().factors(169)
     [13, 13]
     """
+    @timer
     def factors(self, n: int) -> List[int]:
         result = []
         while n % 2 == 0:
@@ -35,6 +38,7 @@ class Solution:
             result.append(n)
         return result
     
+    @timer
     def isPalindromicNumber(self, n: int) -> bool:
         """
         True if the input is a palindromic integer.
@@ -63,6 +67,7 @@ class Solution:
                     break        
         return res
     
+    @timer
     def largestPalindrome(self, n: int) -> int:
         """
         Return the largest palindrome made by multiiplying two n-digit numbers.
@@ -87,6 +92,6 @@ class Solution:
         return -1
         
 if __name__ == "__main__":
-    import doctest
-    doctest.testmod(verbose=True)
+    run_doctest()
     print('@ Answer to Euler #4:', Solution().largestPalindrome(3))
+    report_timing()

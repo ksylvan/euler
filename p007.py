@@ -5,9 +5,11 @@
 # What is the 10 001st prime number?
 
 from math import sqrt
+from testing import report_timing, run_doctest, timer
 
 primes = [2, 3, 5, 7, 11, 13]
 
+@timer
 def isPrime(n: int) -> bool:
     if n <= 1:
         return False
@@ -18,6 +20,7 @@ def isPrime(n: int) -> bool:
         if i >= k:
             return True
 
+@timer
 def nthPrime(n: int) -> int:
     """
     Returns the nth prime number
@@ -55,6 +58,6 @@ def nthPrime(n: int) -> int:
 # Test cases
 #
 if __name__ == '__main__':
-    import doctest
-    doctest.testmod(verbose=True)
+    run_doctest()
     print('@ Answer for Euler #7:', nthPrime(10001))
+    report_timing()

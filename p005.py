@@ -10,7 +10,10 @@ from typing import Dict
 from collections import defaultdict
 from math import sqrt
 
+from testing import report_timing, run_doctest, timer
+
 class Solution:
+    @timer
     def factors(self, n: int) -> Dict[int, int]:
         d = defaultdict(int)
         while n % 2 == 0:
@@ -24,6 +27,7 @@ class Solution:
             d[n] += 1
         return d
     
+    @timer
     def smallestMultiple(self, n: int) -> int:
         """
         >>> Solution().smallestMultiple(10)
@@ -45,7 +49,6 @@ class Solution:
         return res
 
 if __name__ == "__main__":
-    import doctest
-    doctest.testmod(verbose=True)
+    run_doctest()
     print('@ Answer to Euler #5:', Solution().smallestMultiple(20))
-    
+    report_timing()

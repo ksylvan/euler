@@ -16,11 +16,18 @@ Conventions for the code: All python code uses doctest and is structured into sm
 The answers to all the Euler problems can be seen by:
 
 ```bash
-make all
+make answers
 ```
 
 This default target assumes convention that the output to summarize the answer starts with the
 string "@ " at the beginning of the line.
+
+```bash
+make measurements
+```
+
+This target runs the tests and reports timing measurements of the methods/functions that
+were run to determine the solution.
 
 ```bash
 make tests

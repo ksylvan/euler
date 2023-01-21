@@ -17,6 +17,9 @@
 #
 # Reference: https://www.cuemath.com/algebra/sum-of-squares/
 
+from testing import report_timing, run_doctest, timer
+
+@timer
 def sum_of_squares(n: int) -> int:
     """
     Returns the sum of the squares of the first n natural numbers.
@@ -26,6 +29,7 @@ def sum_of_squares(n: int) -> int:
     """
     return n * (n + 1) * (2*n + 1) // 6
 
+@timer
 def square_of_sum(n: int) -> int:
     """
     Returns square of the sum of the first n natural numbers.
@@ -36,6 +40,7 @@ def square_of_sum(n: int) -> int:
 
     return n * (n + 1) * n * (n + 1) // 4
 
+@timer
 def sum_square_diff(n: int) -> int:
     """
     Returns the difference between square of the sum of the first n
@@ -50,6 +55,6 @@ def sum_square_diff(n: int) -> int:
     return square_of_sum(n) - sum_of_squares(n)
 
 if __name__ == "__main__":
-    import doctest
-    doctest.testmod(verbose=True)
+    run_doctest()
     print('@ Answer to Euler #6:', sum_square_diff(100))
+    report_timing()

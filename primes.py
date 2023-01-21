@@ -1,12 +1,16 @@
 # Prime related utility methods.
 #
 
-from itertools import count, combinations
-from typing import List
+from itertools import combinations, count
 from math import prod
+from os import path
+from typing import List
+
+from testing import report_timing, run_doctest, timer
 
 __p = [2, 3, 5]
 
+@timer
 def next_prime(from_start: bool = False) -> int:
     """
     Generator that yields primes.
@@ -39,6 +43,7 @@ def next_prime(from_start: bool = False) -> int:
             yield p
         p += 2
 
+@timer
 def is_prime(n: int) -> bool:
     """
     Returns True if n is a prime number, False otherwise.
@@ -68,6 +73,7 @@ def is_prime(n: int) -> bool:
             break
     return True
 
+@timer
 def factors(n: int) -> List[int]:
     """
     Returns a list of all prime factors of n.
@@ -102,6 +108,7 @@ def factors(n: int) -> List[int]:
         res.append(n)
     return res
 
+@timer
 def all_factors(n: int, include_one = False) -> List[int]:
     """
     Returns a list of all composite and prine factors of n.
@@ -120,6 +127,7 @@ def all_factors(n: int, include_one = False) -> List[int]:
             res.add(prod(subset))
     return sorted(list(res))
 
+@timer
 def gcd(a: int, b: int) -> int:
     """
     Returns the greatest common divisor of a and b.
@@ -138,6 +146,6 @@ def gcd(a: int, b: int) -> int:
     return a
 
 if __name__ == "__main__":
-    import doctest
-    doctest.testmod(verbose=True)
-    print("@ This utility module does not answer any Euler project questions.")
+    run_doctest()
+    print(f"@ This utility module ({path.basename(__file__)}) does not answer any Euler project questions.")
+    report_timing()
