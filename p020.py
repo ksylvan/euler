@@ -11,13 +11,16 @@
 from functools import reduce, cache
 from operator import add
 from math import prod
+from testing import report_timing, run_doctest, timer
 
+@timer
 @cache
 def factorial(n: int) -> int:
     if n == 0:
       return 1
     return prod(range(1, n+1))
 
+@timer
 def factorial_digit_sum(n: int) -> int:
     """
     Returns the sum of the digits of n!
@@ -37,6 +40,6 @@ def factorial_digit_sum(n: int) -> int:
     return reduce(add, map(int, str(factorial(n))))
 
 if __name__ == '__main__':
-    import doctest
-    doctest.testmod(verbose=True)
+    run_doctest()
     print("@ Answer for Euler #20 (sum of digits in 100!):", factorial_digit_sum(100))
+    report_timing()

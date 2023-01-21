@@ -32,8 +32,10 @@
 # by trying every route. However, Problem 67, is the same challenge with a triangle 
 # containing one-hundred rows; it cannot be solved by brute force, and requires a clever method! ;o)
 #
-from typing import List
+
 from functools import cache
+from testing import report_timing, run_doctest, timer
+from typing import List
 
 t = [[75],
 [95, 64],
@@ -51,6 +53,7 @@ t = [[75],
 [63, 66, 4, 68, 89, 53, 67, 30, 73, 16, 69, 87, 40, 31],
 [4, 62, 98, 27, 23, 9, 70, 98, 73, 93, 38, 53, 60, 4, 23],]
 
+@timer
 def max_path(triangle: List[List[int]]) -> int:
     """
     Returns the maximum total from top to bottom of the input triangle.
@@ -73,6 +76,6 @@ def max_path(triangle: List[List[int]]) -> int:
     return max_it(0, 0)
 
 if __name__ == "__main__":
-    import doctest
-    doctest.testmod(verbose=True)
+    run_doctest()
     print("@ Answer to Euler #18: ", max_path(t))
+    report_timing()

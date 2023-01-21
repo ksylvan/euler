@@ -4,6 +4,9 @@
 #
 # What is the sum of the digits of the number 2^1000?
 
+from testing import report_timing, run_doctest, timer
+
+@timer
 def power_digit_sum(n: int) -> int:
     """
     Returns the sum of digits of 2^n
@@ -19,6 +22,6 @@ def power_digit_sum(n: int) -> int:
 
 
 if __name__ == "__main__":
-    import doctest
-    doctest.testmod(verbose=True)
+    run_doctest()
     print('@ Answer for Euler #16:', power_digit_sum(1000))
+    report_timing()

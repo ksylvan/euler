@@ -11,14 +11,17 @@
 
 # Evaluate the sum of all the amicable numbers under 10000.
 
-from math import sqrt
-from typing import List
+from functools import cache, reduce
 from itertools import combinations
+from math import sqrt
 from operator import mul
-from functools import reduce, cache
+from typing import List
+
+from testing import report_timing, run_doctest, timer
 
 odd_primes = [3, 5]
 
+@timer
 def prime_generator() -> int:
     p = odd_primes[-1] + 2
     while True:
@@ -35,6 +38,7 @@ def prime_generator() -> int:
             yield p
         p += 2
   
+@timer
 def factors(n: int) -> List[int]:
     """Return list of prime factors of n.
     
@@ -69,6 +73,7 @@ def factors(n: int) -> List[int]:
             n = 1
     return result
 
+@timer
 def gen_proper_divisors(d: List[int]) -> List[int]:
     """Return list of proper divisors of d.
     
@@ -81,6 +86,7 @@ def gen_proper_divisors(d: List[int]) -> List[int]:
             res.add(reduce(mul, c))
     return sorted(list(res))
 
+@timer
 def sum_proper_factors(n: int) -> int:
     """
     Return the sum of all proper factors of n.
@@ -100,6 +106,7 @@ def sum_proper_factors(n: int) -> int:
         return 0
     return sum(gen_proper_divisors(factors(n)))
 
+@timer
 @cache
 def is_amicable(n: int) -> bool:
     """
@@ -120,6 +127,7 @@ def is_amicable(n: int) -> bool:
     n2 = sum_proper_factors(n1)
     return n2 == n and n1 != n2
 
+@timer
 @cache
 def all_amicable_under(lim: int) -> int:
     """
@@ -141,6 +149,6 @@ def all_amicable_under(lim: int) -> int:
     return s
 
 if __name__ == "__main__":
-    import doctest
-    doctest.testmod(verbose=True)
+    run_doctest()
     print("@ The answer to Euler #21 (sum of all amicable numbers under 10000):", all_amicable_under(10000))
+    report_timing()

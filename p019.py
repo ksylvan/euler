@@ -5,7 +5,9 @@
 #
 
 from datetime import date
+from testing import report_timing, run_doctest, timer
 
+@timer
 def answer() -> int:
     """
     Return the number of Sundays that ended up as the first day of the month
@@ -24,6 +26,6 @@ def answer() -> int:
     return res
 
 if __name__ == "__main__":
-    import doctest
-    doctest.testmod(verbose=True)
+    run_doctest()
     print("@ Answer to Euler #19 (Sundays on 1st of the month in 20th century):", answer())
+    report_timing()

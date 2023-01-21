@@ -11,6 +11,9 @@
 #
 # Dictionary to store the number of letters used for each number from 1 to 19
 
+from testing import report_timing, run_doctest, timer
+
+@timer
 def num2word(n: int) -> str:
     up_to_19 = ['one', 'two', 'three', 'four', 'five', 'six',
                 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen',
@@ -37,6 +40,7 @@ def num2word(n: int) -> str:
             n = 0
     return result
 
+@timer
 def letters_up_to_1000() -> int:
     """
     >>> letters_up_to_1000()
@@ -48,7 +52,6 @@ def letters_up_to_1000() -> int:
     return res
 
 if __name__ == '__main__':
-    import doctest
-    doctest.testmod(verbose=True)
+    run_doctest()
     print('@ Answer to Euler #17:', letters_up_to_1000())
-
+    report_timing()
