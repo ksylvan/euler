@@ -28,16 +28,18 @@ from typing import Tuple
 from primes import is_prime
 from testing import report_timing, run_doctest, timer
 
-
+@timer
 def quadratic(a: int, b: int, n: int) -> int:
     return n**2 + a*n + b
 
+@timer
 def num_of_primes(a: int, b:int) -> int:
     for i in count(0):
         if not is_prime(quadratic(a, b, i)):
             break
     return i
 
+@timer
 @cache
 def find_a_b(N: int) -> Tuple[int, int]:
     """
@@ -63,7 +65,7 @@ def find_a_b(N: int) -> Tuple[int, int]:
     return (t[1], t[2])
 
 if __name__ == "__main__":
-    import doctest
-    doctest.testmod(verbose=True)
+    run_doctest()
     a, b = find_a_b(1000)
     print (f"@ Project Euler Problem 27 answer: {a*b}")
+    report_timing()

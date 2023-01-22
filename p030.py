@@ -20,6 +20,7 @@ from testing import report_timing, run_doctest, timer
 
 max_num = 10**6 - 1
 
+@timer
 @cache
 def findArmstrongLikeNumbers(n: int) -> List[int]:
     """
@@ -43,8 +44,8 @@ def findArmstrongLikeNumbers(n: int) -> List[int]:
     return res
 
 if __name__ == "__main__":
-    import doctest
-    doctest.testmod(verbose=True)
+    run_doctest()
     l = findArmstrongLikeNumbers(5)
     print("@ Euler Project #30 answer:", sum(l))
     print(f"@ The numbers that make up ths sum: {l}")
+    report_timing()

@@ -12,7 +12,7 @@ answers:
 	@for f in $(SRCS); do echo "-- $$f --"; python3 $$f | grep '^@' | sed 's/^@ //'; done
 
 measurements:
-	@for f in $(SRCS); do echo "-- $$f --"; TIMING=1 python3 $$f; done
+	@for f in $(SRCS); do echo "-- $$f --"; TIMING=1 python3 $$f | grep -v '^@' ; done
 
 tests:
 	@for f in $(SRCS); do echo "-- $$f --"; TESTING=1 python3 $$f | grep 'pass\|fail'; done
