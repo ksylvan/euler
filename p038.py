@@ -21,6 +21,9 @@
 
 from typing import List
 
+from testing import report_timing, run_doctest, timer
+
+@timer
 def is_pandigital(numbers: List[int]) -> bool:
     """
     Returns True if the list of numbers is pandigital, False otherwise.
@@ -45,6 +48,7 @@ def is_pandigital(numbers: List[int]) -> bool:
         return False
     return True
 
+@timer
 def two_numbers() -> List[List[int]]:
     res = []
     for i in range(4999, 10**5):
@@ -52,6 +56,7 @@ def two_numbers() -> List[List[int]]:
             res.append([i, 2*i])
     return res
 
+@timer
 def three_numbers() -> List[List[int]]:
     res = []
     for i in range(111, 10**4):
@@ -59,6 +64,7 @@ def three_numbers() -> List[List[int]]:
             res.append([i, 2*i, 3*i])
     return res
 
+@timer
 def four_numbers() -> List[List[int]]:
     res = []
     for i in range(11, 10**3):
@@ -66,6 +72,7 @@ def four_numbers() -> List[List[int]]:
             res.append([i, 2*i, 3*i, 4*i])
     return res
 
+@timer
 def five_numbers() -> List[List[int]]:
     res = []
     for i in range(1, 10):
@@ -73,6 +80,7 @@ def five_numbers() -> List[List[int]]:
             res.append([i, 2*i, 3*i, 4*i, 5*i])
     return res
 
+@timer
 def all_numbers():
     funcs = [five_numbers, four_numbers, three_numbers, two_numbers]
     for f in funcs:
@@ -80,8 +88,7 @@ def all_numbers():
             yield r
 
 if __name__ == '__main__':
-    import doctest
-    doctest.testmod(verbose=True)
+    run_doctest()
     m, res = 0, []
     for r in all_numbers():
         n = int("".join(list(map(str, r))))
@@ -90,3 +97,4 @@ if __name__ == '__main__':
             res = r
     print("@ Euler Problem 38 answer:", m)
     print("@ The answer is composed of the following numbers:", res)
+    report_timing()

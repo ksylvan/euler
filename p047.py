@@ -13,11 +13,14 @@
 #
 # Find the first four consecutive integers to have four distinct prime factors each. What is the first of these numbers?
 
-from primes import factors
 from collections import Counter
-from typing import List
 from itertools import count
+from typing import List
 
+from primes import factors
+from testing import report_timing, run_doctest, timer
+
+@timer
 def distinct_primes(n: int) -> List[int]:
     """
     Find the first n consecutive integers that have n distinct prime factors.
@@ -40,8 +43,8 @@ def distinct_primes(n: int) -> List[int]:
     return res
  
 if __name__ == "__main__":
-    import doctest
-    doctest.testmod(verbose=True)
+    run_doctest()
     answer = distinct_primes(4)
     print(f"@ The answer to Euler #47 is: {answer[0]}")
     print(f"@ The Four consequtive numbers with 4 distinct factors are: {answer}")
+    report_timing()

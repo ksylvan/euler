@@ -15,6 +15,9 @@
 
 from functools import cache
 
+from testing import report_timing, run_doctest, timer
+
+@timer
 @cache
 def distinctPowers(n: int) -> int:
     """
@@ -31,8 +34,7 @@ def distinctPowers(n: int) -> int:
             s.add(i**j)
     return len(s)
 
-
 if __name__ == '__main__':
-    import doctest
-    doctest.testmod(verbose=True)
+    run_doctest()
     print("@ Euler 29 answer:", distinctPowers(100))
+    report_timing()

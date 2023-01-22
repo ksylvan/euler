@@ -12,6 +12,9 @@
 
 from functools import cache
 
+from testing import report_timing, run_doctest, timer
+
+@timer
 @cache
 def fibonacci(n: int) -> int:
     """
@@ -30,6 +33,7 @@ def fibonacci(n: int) -> int:
         return n
     return fibonacci(n - 2) + fibonacci(n - 1)
 
+@timer
 @cache
 def fib_term_with_digits(n: int):
     """
@@ -53,6 +57,6 @@ def fib_term_with_digits(n: int):
     return i
 
 if __name__ == "__main__":
-    import doctest
-    doctest.testmod(verbose=True)
+    run_doctest()
     print("@ Answer for Euler #25 (index of 1st Fibonacci number with 1000 digits):", fib_term_with_digits(1000))
+    report_timing()

@@ -53,6 +53,7 @@ digits = list(map(int, input_digits.replace("\n", '')))
 
 from functools import reduce
 from operator import mul
+
 from testing import report_timing, run_doctest, timer
 
 @timer

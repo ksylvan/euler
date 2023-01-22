@@ -17,9 +17,12 @@
 #
 # Find the value of d < 1000 for which 1/d contains the longest recurring cycle in its decimal fraction part.
 
-from typing import Tuple
 from functools import cache
+from typing import Tuple
 
+from testing import report_timing, run_doctest, timer
+
+@timer
 @cache
 def unit_fraction(n: int) -> Tuple[str, int]:
     """
@@ -58,6 +61,7 @@ def unit_fraction(n: int) -> Tuple[str, int]:
             digit_place += 1
         return (s, 0)
 
+@timer
 @cache
 def answer(n: int) -> int:
     """
@@ -78,6 +82,6 @@ def answer(n: int) -> int:
     return saved_d
 
 if __name__ == "__main__":
-    import doctest
-    doctest.testmod(verbose=True) 
+    run_doctest()
     print(f"@ Answer to Euler 26: {answer(1000)}")          
+    report_timing()

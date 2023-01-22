@@ -18,6 +18,7 @@
 #
 
 from functools import cache
+
 from testing import report_timing, run_doctest, timer
 
 @timer

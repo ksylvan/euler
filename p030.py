@@ -13,8 +13,10 @@
 #
 # Find the sum of all the numbers that can be written as the sum of fifth powers of their digits.
 
-from typing import List
 from functools import cache
+from typing import List
+
+from testing import report_timing, run_doctest, timer
 
 max_num = 10**6 - 1
 

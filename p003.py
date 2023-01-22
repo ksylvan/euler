@@ -7,8 +7,9 @@
 # What is the largest prime factor of the number 600851475143?
 
 from math import sqrt
-from testing import report_timing, run_doctest, timer
 from typing import List
+
+from testing import report_timing, run_doctest, timer
 
 @timer
 def factors(n: int) -> List[int]:

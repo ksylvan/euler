@@ -11,10 +11,13 @@
 # and D = |Pk − Pj| is minimised; what is the value of D?
 #
 
-from math import sqrt
-from itertools import count
 from bisect import bisect_left
+from itertools import count
+from math import sqrt
 
+from testing import report_timing, run_doctest, timer
+
+@timer
 def pent(n: int) -> int:
     """
     Returns the nth pentagonal number.
@@ -26,6 +29,7 @@ def pent(n: int) -> int:
     """
     return n * (3*n - 1) // 2
 
+@timer
 def pentagonal_index(x: int) -> int:
     """
     Returns a positive integer n if x is a pentagonal number.
@@ -59,6 +63,7 @@ def pentagonal_index(x: int) -> int:
     n = (1+ sqrt(1+24*x))/6
     return int(n) if n == int(n) else -1
 
+@timer
 def search(limit: int = 50000):
     """
     Generator that searches for a pentagonal number pair P(j) and P(k) such that
@@ -85,8 +90,7 @@ def search(limit: int = 50000):
                 yield (int(pj), int(pk))
 
 if __name__ == "__main__":
-    import doctest
-    doctest.testmod(verbose=True)
+    run_doctest()
     g = search()
     pj, pk = next(g)
     answer = pk - pj
@@ -94,3 +98,4 @@ if __name__ == "__main__":
     j = pentagonal_index(pj)
     k = pentagonal_index(pk)
     print(f"@ That answer corresponds to the pentagonal numbers at {j} and {k} index values.")
+    report_timing()

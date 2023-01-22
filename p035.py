@@ -10,6 +10,9 @@
 from primes import is_prime
 from typing import Set
 
+from testing import report_timing, run_doctest, timer
+
+@timer
 def rotate_number(n: int) -> int:
     """
     >>> rotate_number(23)
@@ -28,7 +31,8 @@ def rotate_number(n: int) -> int:
     if n < 10:
         return n
     return int(str(n % 10) + str(n //10))
-    
+
+@timer   
 def check_circular(n: int, r: Set[int] = None) -> int:
     """
     Return the number of circular primes given a starting number in the cycle.
@@ -69,6 +73,7 @@ def check_circular(n: int, r: Set[int] = None) -> int:
         r |= c
     return num_of_primes
 
+@timer
 def circular_primes_below(n: int, res: Set[int] = None) -> int:
     """
     Returns the number of circular primes below n.
@@ -92,9 +97,9 @@ def circular_primes_below(n: int, res: Set[int] = None) -> int:
     return len(res)
 
 if __name__ ==  "__main__":
-    import doctest
-    doctest.testmod(verbose=True)
+    run_doctest()
     r = set()
     n = circular_primes_below(1000000, r)
     print("@ Euler 35 answer for how many circular primes below a million:", n)
     print(f"@ The set of circular primes is: {sorted(list(r))}")
+    report_timing()

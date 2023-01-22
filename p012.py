@@ -10,8 +10,9 @@
 #
 # Code was mostly written by ChatGPT https://chat.openai.com/chat
 
+from typing import Dict, List
+
 from testing import report_timing, run_doctest, timer
-from typing import List, Dict
 
 @timer
 def extend_primeas(primes: List[int], v: int) -> None:

@@ -34,8 +34,9 @@
 #
 
 from functools import cache
-from testing import report_timing, run_doctest, timer
 from typing import List
+
+from testing import report_timing, run_doctest, timer
 
 t = [[75],
 [95, 64],

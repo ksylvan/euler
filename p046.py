@@ -15,10 +15,13 @@
 # What is the smallest odd composite that cannot be written as the sum of a prime and twice a square?
 #
 
-from primes import is_prime
-from math import sqrt
 from itertools import count
+from math import sqrt
 
+from primes import is_prime
+from testing import report_timing, run_doctest, timer
+
+@timer
 def is_goldbach(n: int) -> bool:
     """
     Returns true if n works with the goldbach formula.
@@ -42,9 +45,9 @@ def is_goldbach(n: int) -> bool:
     return False
 
 if __name__ == '__main__':
-    import doctest
-    doctest.testmod(verbose=True)  
+    run_doctest()
     for n in count(9, 2):
         if not is_goldbach(n):
             break
     print("@ The answer to Euler #46 is", n)
+    report_timing()

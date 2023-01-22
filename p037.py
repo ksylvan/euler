@@ -11,7 +11,9 @@
 # NOTE: 2, 3, 5, and 7 are not considered to be truncatable primes.
 
 from primes import is_prime, next_prime
+from testing import report_timing, run_doctest, timer
 
+@timer
 def isTruncatablePrime(n: int) -> bool:
     """
     Returns True if the integer is a truncatable prime else False.
@@ -44,8 +46,7 @@ def isTruncatablePrime(n: int) -> bool:
     return True
 
 if __name__ ==  "__main__":
-    import doctest
-    doctest.testmod(verbose=True)
+    run_doctest()
     g = next_prime(from_start=True)
     s, num = 0, 11
     while num:
@@ -54,3 +55,4 @@ if __name__ ==  "__main__":
             num -= 1
             s += p
     print(f"@ Euler Problem 36: The sum of the 11 truncatable primes is {s}")
+    report_timing()

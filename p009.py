@@ -15,8 +15,9 @@
 # Brute force, we can test the o(n^2) possible triplets:
 #
 
-from testing import report_timing, run_doctest, timer
 from typing import List
+
+from testing import report_timing, run_doctest, timer
 
 @timer
 def find_triplets_summing_to(n: int) -> List[List[int]]:

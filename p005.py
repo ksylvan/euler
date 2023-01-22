@@ -8,8 +8,9 @@
 
 from collections import defaultdict
 from math import sqrt
-from testing import report_timing, run_doctest, timer
 from typing import Dict
+
+from testing import report_timing, run_doctest, timer
 
 class Solution:
     @timer

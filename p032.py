@@ -13,8 +13,11 @@
 # once in your sum.
 
 from typing import Set
-from primes import all_factors
 
+from primes import all_factors
+from testing import report_timing, run_doctest, timer
+
+@timer
 def pandigital_product() -> Set[int]:
     """
     Return the list of products C, where A*B=C and ABC together have all digits from 1-9.
@@ -39,8 +42,8 @@ def pandigital_product() -> Set[int]:
     return res
 
 if __name__ == '__main__':
-    import doctest
-    doctest.testmod(verbose=True)
+    run_doctest()
     s = pandigital_product()
     print("@ Euler 32 answer:", sum(s))
     print(f"@ The set of numbers is: {s}")
+    report_timing()

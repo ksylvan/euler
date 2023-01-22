@@ -8,6 +8,9 @@
 
 from typing import Dict, List
 
+from testing import report_timing, run_doctest, timer
+
+@timer
 def digit_factorials() -> Dict[int, int]:
     """
     >>> digit_factorials()
@@ -20,6 +23,7 @@ def digit_factorials() -> Dict[int, int]:
         h[i] = f
     return h
 
+@timer
 def find_digit_factorial_nums() -> List[int]:
     fact_hash = digit_factorials()
     res = []
@@ -33,8 +37,8 @@ def find_digit_factorial_nums() -> List[int]:
     return res
 
 if __name__ == '__main__':
-    import doctest
-    doctest.testmod(verbose=True)
+    run_doctest()
     l = find_digit_factorial_nums()
     print(f"@ Euler 34 answer: {sum(l)}")
     print(f"@ The numbers are: {l}")
+    report_timing()

@@ -31,6 +31,9 @@
 
 from math import prod
 
+from testing import report_timing, run_doctest, timer
+
+@timer
 def s(n: int, lim=1000000) -> str:
     res = "-"
     for i in range(1, n):
@@ -39,6 +42,7 @@ def s(n: int, lim=1000000) -> str:
             break
     return res
 
+@timer
 def d(n: int) -> int:
     """
     Return the nth digit of the fractional part of Champernowne's constant
@@ -82,9 +86,9 @@ def d(n: int) -> int:
     return 0
 
 if __name__ == "__main__":
-    import doctest
-    doctest.testmod(verbose=True)
+    run_doctest()
     j = [1, 10, 100, 1000, 10000, 100000, 1000000]
     digits = map(d, j)
     answer = prod(digits)
     print (f"@ The answer for Euler #40: {answer}")
+    report_timing()

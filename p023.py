@@ -18,6 +18,9 @@
 from p021 import sum_proper_factors
 from functools import cache
 
+from testing import report_timing, run_doctest, timer
+
+@timer
 def is_abundant(n: int) -> bool:
     """
     >>> is_abundant(12)
@@ -26,6 +29,7 @@ def is_abundant(n: int) -> bool:
     """
     return sum_proper_factors(n) > n
 
+@timer
 @cache
 def solve() -> int:
     """
@@ -55,6 +59,6 @@ def solve() -> int:
     return res
 
 if __name__ == "__main__":
-    import doctest
-    doctest.testmod(verbose=True)
+    run_doctest()
     print(f"@ The answer to Euler #23 (abundant numbers) is {solve()}")
+    report_timing()

@@ -8,9 +8,10 @@
 # Find the sum of the digits in the number 100!
 #
 
-from functools import reduce, cache
-from operator import add
+from functools import cache, reduce
 from math import prod
+from operator import add
+
 from testing import report_timing, run_doctest, timer
 
 @timer

@@ -26,8 +26,9 @@
 # What is the greatest product of four adjacent numbers in the same
 # direction (up, down, left, right, or diagonally) in the 20×20 grid?
 
-from testing import report_timing, run_doctest, timer
 from typing import List
+
+from testing import report_timing, run_doctest, timer
 
 grid = [
     [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],

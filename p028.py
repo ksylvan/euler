@@ -13,6 +13,9 @@
 #
 # What is the sum of the numbers on the diagonals in a 1001 by 1001 spiral formed in the same way?
 
+from testing import report_timing, run_doctest, timer
+
+@timer
 def spiralDiagSum(n: int) -> int:
     """
     O(1) solution for the spiral diagonal sum problem.
@@ -36,6 +39,6 @@ def spiralDiagSum(n: int) -> int:
 
 
 if __name__ == "__main__":
-    import doctest
-    doctest.testmod(verbose=True)
+    run_doctest()
     print(f"@ The answer to Euler 28 is: {spiralDiagSum(1001)}")
+    report_timing()

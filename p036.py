@@ -9,6 +9,9 @@
 
 from typing import List
 
+from testing import report_timing, run_doctest, timer
+
+@timer
 def isPalindrome(s: str) -> bool:
     """
     Return True if the string is a palindrome, else False.
@@ -25,6 +28,7 @@ def isPalindrome(s: str) -> bool:
             return False
     return True
 
+@timer
 def binPalindrome(n: int) -> bool:
     """
     Return True if the number is a palindrome in binary, else False.
@@ -36,23 +40,30 @@ def binPalindrome(n: int) -> bool:
     """
     return isPalindrome(bin(n)[2:])    
 
+@timer
 def decimalPalindromesLessThan(n: int) -> int:
     """
     Generator of decimal palindromes less than the given number.
     """
+    @timer
     def single(): # single digit palindrome
         for v in range(1, 10):
             yield v
+
+    @timer
     def double(leadingZero = False): # double digit palindrome
         if leadingZero:
             yield 0
         for v in [k*11 for k in range(1, 10)]:
             yield v
+
+    @timer
     def triple(leadingZero = False): # triple digit palindrome
         start_with = 0 if leadingZero else 1
         for i in range(start_with, 10):
             for j in range(10):
                 yield 100*i + 10*j + i
+    @timer
     def quadruple(leadingZero = False): # quadruple digit palindrome
         start_with = 0 if leadingZero else 1
         for i in range(start_with, 10):
@@ -88,6 +99,7 @@ def decimalPalindromesLessThan(n: int) -> int:
             if v < n:
                 yield v
 
+@timer
 def doubleBasePalindromesLessThan(n: int) -> List[int]:
     """
     Return the list of double base palindromes less than the given number.
@@ -105,8 +117,8 @@ def doubleBasePalindromesLessThan(n: int) -> List[int]:
     return res
     
 if __name__ == "__main__":
-    import doctest
-    doctest.testmod(verbose=True)
+    run_doctest()
     l = doubleBasePalindromesLessThan(1000000)
     print(f"@ Euler problem 36 answer for sum of double base palindromes less than 1000000: {sum(l)}")
     print(f"@ The numbers are: {l}")
+    report_timing()

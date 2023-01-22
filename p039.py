@@ -13,10 +13,13 @@
 # https://www.aimspress.com/article/id/3488 
 #
 
-from typing import List, Tuple
 from collections import defaultdict
 from itertools import count
+from typing import List, Tuple
 
+from testing import report_timing, run_doctest, timer
+
+@timer
 def p(m: int, n: int) -> Tuple[int, int, int]:
     """
     Implements the generator function in the Pythagorean triples paper.
@@ -33,6 +36,7 @@ def p(m: int, n: int) -> Tuple[int, int, int]:
     c = 2*n*n + 4*m*n - 2*n + 4*m*m - 4*m + 1
     return (a, b, c)
 
+@timer
 def all_pythagorean_triples():
     """
     Generator using the p(m, n) formulation.
@@ -58,6 +62,7 @@ perimeters = defaultdict(set)
 perimeter_with_most_triples = 0
 most_triples_list_len = 0
 
+@timer
 def pyth_scan_to_perim(n: int) -> None:
     """
     Set up perimeters hash for up to perimeter <= n.
@@ -78,9 +83,9 @@ def pyth_scan_to_perim(n: int) -> None:
             break
 
 if __name__ == "__main__":
-    import doctest
-    doctest.testmod(verbose=True)
+    run_doctest()
     pyth_scan_to_perim(1000)
     print(f"@ Answer to Euler 39: perimeter_with_most_triples = {perimeter_with_most_triples}")
     print(f"@ That perimeter is reached with {most_triples_list_len} triples")
     print(f"@ The list of Pythagorean Triples with that parameter: {perimeters[perimeter_with_most_triples]}")
+    report_timing()

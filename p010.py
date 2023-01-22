@@ -5,6 +5,7 @@
 # Find the sum of all the primes below two million.
 
 from math import sqrt
+
 from testing import report_timing, run_doctest, timer
 
 primes = [2, 3, 5, 7, 11, 13, 17, 19]

@@ -10,9 +10,12 @@
 #
 # What is the total of all the name scores in the file?
 
-from typing import List
 from functools import cache
+from typing import List
 
+from testing import report_timing, run_doctest, timer
+
+@timer
 def get_names_from_file(fname: str) -> List[str]:
     with open(fname, 'r') as f:
         names = f.read().split(',')
@@ -21,6 +24,7 @@ def get_names_from_file(fname: str) -> List[str]:
         names[i] = names[i].replace('"', '')
     return names
 
+@timer
 def name_value(s: str) -> int:
     """
     Calculate the name score for a given name.
@@ -33,6 +37,7 @@ def name_value(s: str) -> int:
         res += ord(c) - ord('A') + 1
     return res
 
+@timer
 @cache
 def solve() -> int:
     """
@@ -49,6 +54,6 @@ def solve() -> int:
     return res
 
 if __name__ == '__main__':
-    import doctest
-    doctest.testmod(verbose=True)
+    run_doctest()
     print(f'@ The answer to Euler #22 is: {solve()}')
+    report_timing()

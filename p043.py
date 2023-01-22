@@ -23,6 +23,8 @@ from functools import reduce
 from itertools import permutations
 from typing import Tuple
 
+from testing import report_timing, run_doctest, timer
+
 class PandigitalGenerator:
     """
     A class to represent a pandigital generator of all pandigital numbers of n digits.
@@ -42,12 +44,18 @@ class PandigitalGenerator:
     >>> for i in p: print(i)
     201
     """
+    
+    @timer
     def __init__(self, n: int, filter = None):
         self.digits = range(n)
         self.filter = filter
         self._p = permutations(self.digits)
+
+    @timer
     def __iter__(self):
         return self
+
+    @timer
     def __next__(self):
         """
         Return the next pandigital number of the desired length.
@@ -62,9 +70,12 @@ class PandigitalGenerator:
                     continue
             break
         return reduce(lambda a, b: 10*a+b, x)
+
+    @timer
     def __repr__(self):
         return f"{self.__class__.__name__}({self.digits, self.filter})"
 
+@timer
 def divisibilityTest(l: Tuple[int, int, int, int, int, int, int, int, int, int]) -> bool:
     d1, d2, d3, d4, d5, d6, d7, d8, d9, d10 = l
     # d2d3d4=406 is divisible by 2
@@ -91,11 +102,11 @@ def divisibilityTest(l: Tuple[int, int, int, int, int, int, int, int, int, int])
     return True
     
 if __name__ == "__main__":
-    import doctest
-    doctest.testmod(verbose=True)
+    run_doctest()
     p = PandigitalGenerator(10, divisibilityTest)
     numbers = []
     for i in p:
         numbers.append(i)
     print("@ Euler #43 answer:", sum(numbers))
     print("@ The list of numbers is:", numbers)
+    report_timing()

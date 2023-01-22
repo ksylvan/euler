@@ -7,10 +7,11 @@
 
 # Find the largest palindrome made from the product of two 3-digit numbers.
 
-from heapq import heappop, heapify
+from heapq import heapify, heappop
 from math import sqrt
-from testing import report_timing, run_doctest, timer
 from typing import List
+
+from testing import report_timing, run_doctest, timer
 
 class Solution:
     """

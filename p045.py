@@ -10,9 +10,12 @@
 #
 # Find the next triangle number that is also pentagonal and hexagonal.
 
-from math import sqrt
 from itertools import count
+from math import sqrt
 
+from testing import report_timing, run_doctest, timer
+
+@timer
 def isTriangle(x: int) -> bool:
     """
     Returns True if x is a triangle number, False otherwise.
@@ -37,6 +40,7 @@ def isTriangle(x: int) -> bool:
     n = (-1 + sqrt(1 + 8 * x)) / 2
     return n == int(n)
 
+@timer
 def isPentagonal(x: int) -> bool:
     """
     Returns True if x is a pentagonal number, False otherwise.
@@ -51,6 +55,7 @@ def isPentagonal(x: int) -> bool:
     n = (1+ sqrt(1+24*x))/6
     return n == int(n)
 
+@timer
 def hexagonal(n: int) -> int:
     """
     Returns the nth hexagonal number.
@@ -66,6 +71,7 @@ def hexagonal(n: int) -> int:
     """
     return n*(2*n - 1)
 
+@timer
 def next_hexPentTri(starting: int = 1):
     """
     Generate the next triangle number that is also pentagonal and hexagonal.
@@ -82,11 +88,11 @@ def next_hexPentTri(starting: int = 1):
             yield h      
 
 if __name__ == "__main__":
-    import doctest
-    doctest.testmod(verbose=True)
+    run_doctest()
     g = next_hexPentTri()
     for h in g:
         if h > 40755:
             ans = h
             break
     print(f"@ Answer to Euler #45 is {ans}")
+    report_timing()

@@ -21,10 +21,13 @@
 # maximum number of primes for consecutive values of n starting with n=0
 #
 
-from itertools import count
-from primes import is_prime
 from functools import cache
+from itertools import count
 from typing import Tuple
+
+from primes import is_prime
+from testing import report_timing, run_doctest, timer
+
 
 def quadratic(a: int, b: int, n: int) -> int:
     return n**2 + a*n + b

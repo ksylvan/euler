@@ -17,9 +17,12 @@
 # This solves (via the quadratic equation) to:
 # x = (-1 +- sqrt(1 +8N))/2
 
-from typing import List
 from math import sqrt
+from typing import List
 
+from testing import report_timing, run_doctest, timer
+
+@timer
 def get_words_from_file(fname: str) -> List[str]:
     with open(fname, 'r') as f:
         words = f.read().split(',')
@@ -28,6 +31,7 @@ def get_words_from_file(fname: str) -> List[str]:
         words[i] = words[i].replace('"', '')
     return words
 
+@timer
 def is_triangle_word(word: str) -> bool:
     """
     Return True if the word is a triangle word, False otherwise.
@@ -43,13 +47,12 @@ def is_triangle_word(word: str) -> bool:
     x = (-1 + sqrt(1 + 8*n))/2
     return x == int(x)
 
-
 if __name__ == '__main__':
-    import doctest
-    doctest.testmod(verbose=True)
+    run_doctest()
     words = get_words_from_file('p042_words.txt')
     n = 0
     for word in words:
         if is_triangle_word(word):
             n += 1
     print(f"@ Answer for Euler #42: {n}")                
+    report_timing()

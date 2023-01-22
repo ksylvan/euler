@@ -12,9 +12,12 @@
 # If the product of these four fractions is given in its lowest common terms,
 # find the value of the denominator.
 
-from primes import gcd
 from typing import List, Tuple
 
+from primes import gcd
+from testing import report_timing, run_doctest, timer
+
+@timer
 def digit_canceling_fractions() -> List[Tuple[int,int]]:
     """
     Return the list of non-trivial digit-canceling fractions
@@ -37,8 +40,7 @@ def digit_canceling_fractions() -> List[Tuple[int,int]]:
     return res
 
 if __name__ == "__main__":
-    import doctest
-    doctest.testmod(verbose=True)
+    run_doctest()
     numerator, denominator = 1, 1
     print("@ The list of two-digit digit canceling fractions are:")
     for a, b in digit_canceling_fractions():
@@ -50,3 +52,4 @@ if __name__ == "__main__":
     denominator //= g
     print(f"@ The product of those fractions, normalized is: {numerator}/{denominator}")
     print(f"@ The answer to Euler 33 is: {denominator}")
+    report_timing()

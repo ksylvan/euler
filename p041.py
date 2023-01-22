@@ -8,10 +8,13 @@
 # Given that a 0-digit pandigital number would contain all 9 numbers and is therefore divisible by 3 and nonprime,
 # we can start by looking only at 8-digit pandigital combinations and test for primeness.
 
-from primes import is_prime
-from itertools import permutations
 from functools import reduce
+from itertools import permutations
 
+from primes import is_prime
+from testing import report_timing, run_doctest, timer
+
+@timer
 def largest_pandigital_prime(n: int) -> int:
     """
     Returns largest pandigital prime n-digit number.
@@ -35,8 +38,7 @@ def largest_pandigital_prime(n: int) -> int:
     return -1
 
 if __name__ == "__main__":
-    import doctest
-    doctest.testmod(verbose=True)
+    run_doctest()
     answer = None
     for i in reversed(range(1, 10)):
         x = largest_pandigital_prime(i)
@@ -44,3 +46,4 @@ if __name__ == "__main__":
             answer = x
             break
     print(f"@ The answer to Euler #41 is {answer}")
+    report_timing()

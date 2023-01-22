@@ -12,13 +12,19 @@
 # How many different ways can £2 be made using any number of coins?
 #
 
-from typing import List
 from functools import cache
+from typing import List
+
+from testing import report_timing, run_doctest, timer
+
 
 class CoinChange:
+    @timer
     def __init__(self, coins: List[int]) -> None:
         "Constructor for CoinChange object. Store the list of coin denominations."
         self.coins = sorted(coins)
+
+    @timer
     @cache
     def waysToMakeChange(self, amount: int) -> int:
         """
@@ -52,7 +58,7 @@ class CoinChange:
         return ways[amount]
 
 if __name__ == '__main__':
-    import doctest
-    doctest.testmod(verbose=True)
+    run_doctest()
     c = CoinChange([1,2,5,10,20,50,100, 200])
     print(f"@ Euler problem 31 answer is: {c.waysToMakeChange(200)}")
+    report_timing()

@@ -5,6 +5,7 @@
 #
 
 from datetime import date
+
 from testing import report_timing, run_doctest, timer
 
 @timer
