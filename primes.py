@@ -11,11 +11,12 @@ from testing import report_timing, run_doctest, timer
 __p = [2, 3, 5]
 
 @timer
-def next_prime(from_start: bool = False) -> int:
+def next_prime(from_start: bool = False, limit: int = 0) -> int:
     """
     Generator that yields primes.
     
     If from_start=True, start from the beginning, else, yield the next prime.
+    If limit is non-zero, stop at the given limit.
     
     >>> p = next_prime(from_start = True)
     >>> [next(p) for _ in range(5)]
@@ -25,9 +26,14 @@ def next_prime(from_start: bool = False) -> int:
     >>> p2 = next_prime()
     >>> [next(p2) for _ in range(3)]
     [19, 23, 29]
+    >>> p = next_prime(from_start = True, limit = 10)
+    >>> [i for i in p]
+    [2, 3, 5, 7]
     """
     if from_start:
         for p in __p:
+            if limit and p > limit:
+                return
             yield p
     p = __p[-1] + 2
     while True:
@@ -42,6 +48,8 @@ def next_prime(from_start: bool = False) -> int:
             __p.append(p)
             yield p
         p += 2
+        if limit and p > limit:
+            break
 
 @timer
 def is_prime(n: int) -> bool:
