@@ -7,7 +7,7 @@ SRCS=$(LIB) p001.py p002.py p003.py p004.py p005.py p006.py p007.py p008.py \
 	p025.py p026.py p027.py p028.py p029.py p030.py p031.py p032.py p033.py \
 	p034.py p035.py p036.py p037.py p038.py p039.py p040.py p041.py p042.py \
 	p043.py p044.py p045.py p046.py p047.py p048.py p049.py p050.py p051.py \
-	p052.py p053.py p054.py
+	p052.py p053.py p054.py p055.py
 
 answers:
 	@for f in $(SRCS); do echo "-- $$f --"; python3 $$f | grep '^@' | sed 's/^@ //'; done
